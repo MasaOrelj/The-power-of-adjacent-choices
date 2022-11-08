@@ -1,0 +1,50 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage[slovene]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts,amsmath,amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\newtheorem{Izrek}{Izrek}
+
+\begin{document}
+
+\thispagestyle{empty}
+\begin{center}
+\begin{minipage}{0.75\linewidth}
+    \centering
+    {\Large Univerza v Ljubljani \\ Fakulteta za matematiko in fiziko}
+    \\
+    \vspace{3cm}
+
+    {\uppercase{\Large \textbf{The power of adjacent choices}}} \\ Finančni praktikum \\
+    \vspace{3cm}
+
+    {\Large Maša Orelj, Justin Raišp\par}
+    \vspace{9cm}
+
+    {\Large Ljubljana, 2022}
+\end{minipage}
+\end{center}
+
+\newpage
+ 
+\section{Navodilo}
+
+Imamo $n$ žog in $n$ košev $b_1, \dots , b_n$, ki so prazni. Koši so postavljeni v krogu: koš $b_i$ ima soseda 
+$b_{i-1}$ in $b_{i+1}$, kjer zaradi krožnosti velja, da sta $b_1$ in $b_n$ soseda.
+Opazujemo naslednji naključen proces: Za vsako žogo naključno izberemo koš $b_i$, pogledamo še oba soseda in damo žogo 
+v koš z najmanjšim številom žog v tistem trenutku izmed teh treh. Zanima nas število žog v košu z največ žogami na koncu procesa. 
+Ta proces potem razširimo na več načinov:
+\begin{itemize}
+    \item za sosede štejemo koše, ki so na razdaljah največ $2, 3, \dots$,
+    \item za $n$ košev vzamemo $2n, 3n, 4n, \dots$ žog,
+    \item iščemo koš z najmanjšim številom žog.
+\end{itemize}  
+Opazujemo lahko tudi dvodimenzionalno mrežo košev s topologijo torusa. Torej imamo npr. $n^2$ košev $b_{i,j}$, kjer sta 
+$i, j \in [n]$, kjer za soseda $b_{i,j}$ in $b_{k,l}$ velja $|i - k| + |j - l| = 1$. Soseda sta tudi
+$b_{1,i}$ in $b_{n,i}$  ter $b_{i,1}$ in $b_{i,n}$. Podobno lahko gledamo tudi tridimenzionalno verzijo.
+
+\end{document}
