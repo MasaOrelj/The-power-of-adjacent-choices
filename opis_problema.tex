@@ -7,6 +7,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 
+
 \newtheorem{Izrek}{Izrek}
 
 \begin{document}
@@ -46,5 +47,54 @@ Ta proces potem razširimo na več načinov:
 Opazujemo lahko tudi dvodimenzionalno mrežo košev s topologijo torusa. Torej imamo npr. $n^2$ košev $b_{i,j}$, kjer sta 
 $i, j \in [n]$, kjer za soseda $b_{i,j}$ in $b_{k,l}$ velja $|i - k| + |j - l| = 1$. Soseda sta tudi
 $b_{1,i}$ in $b_{n,i}$  ter $b_{i,1}$ in $b_{i,n}$. Podobno lahko gledamo tudi tridimenzionalno verzijo.
+
+
+
+\section{Načrt dela}
+Za reševanje opisanega problema bova uporabila programski jezik \emph{Python}. Najprej bova napisala program, s katerim bova
+lahko preizkušala vpliv spreminjanja števila sosedov in količine žog na poskus. Pri tem bova privzela, da v primeru, ko je  
+košev z najmanjšim številom žog med pregledanimi koši več, položimo žogo v koš z najmanjšim indeksom. Za začetek sva
+pripravila prvo različico programa, ki je namenjena najbolj osnovnemu primeru poskusa:
+$$ \text{število košev} = n,\  \text{število žog} = n, \ \text{število levih oz.\ desnih sosedov} = 1 .$$
+
+\begin{verbatim}
+def maksimalno_stevilo_zogic(n):
+    B = [0]*n
+    x = 0
+    while x <= n-1:
+        izbrana_kosarica = random.randrange(n)
+        if izbrana_kosarica == 0:
+            sosedi = [B[-1]] + B[0:2]
+            minimalni_sosed = min(sosedi)
+            indeks = sosedi.index(minimalni_sosed)
+            if indeks == 0:
+                B[-1] += 1
+            else:
+                B[izbrana_kosarica -1] += 1
+            x += 1
+        elif izbrana_kosarica == n-1:
+            sosedi = B[n-2:n] + [B[0]]
+            minimalni_sosed = min(sosedi)
+            indeks = sosedi.index(minimalni_sosed)
+            if indeks == 0:
+                B[0] += 1
+            else:
+                B[izbrana_kosarica-2] +=1
+            x += 1
+        else:
+            minimalni_sosed = min(B[izbrana_kosarica -1 : izbrana_kosarica +2])
+            indeks = B[izbrana_kosarica - 1 : izbrana_kosarica + 2].index(minimalni_sosed)
+            B[izbrana_kosarica -1 + indeks] += 1
+            x += 1
+    return max(B)
+\end{verbatim}
+
+\noindent V naslednjem koraku bova program prilagodila tako, da bova število sosedov in večkratnost žog vključila kot spremenljivki,
+na koncu pa ga bova prevedla še na dve oz.\ tri dimenzije.
+
+\section{Cilj}
+Cilj najne seminarske naloge je preučevati vpliv različnih spremenljivk (število sosedov, večkratnost žog) na maksimalno število žog
+v košari, ko so te razporejene v krogu, v torusu ali v treh dimezijah. Predstavljeni problem je problem teorije verjetnosti, zato pričakujeva,
+da bova lahko maksimalno število žog, v odvisnosti od omenjenih parametrov, napovedala z verjetnostjo blizu 1.
 
 \end{document}

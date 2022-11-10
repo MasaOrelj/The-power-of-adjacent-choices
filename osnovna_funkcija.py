@@ -8,7 +8,7 @@ import random
 
 #ce ima vec sosedov minimalno stevilo zogic vzame tistega, ki ima najmanjsi indeks
 
-def maksimalno_stevilo_zogic(n, s=1):
+def maksimalno_stevilo_zogic(n):
     B = [0]*n
     x = 0
     while x <= n-1:
