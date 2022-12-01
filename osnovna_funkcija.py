@@ -13,7 +13,6 @@ def najdi_sosede_1d(kosi,izbrana_kosarica, razdalja=1):
     min_vrednost = min(sosedi.values()) #izmed sosedov poiscemo minimalno vrednost
     return sosedi, min_vrednost
 
-
 def maksimalno_stevilo_zogic(st_zogic, st_kosev, razdalja=1):
     zacetek = time.time()
     kosi = [0]*st_kosev
@@ -44,7 +43,6 @@ def najdi_sosede_2d(kosi,izbrana_kosarica, razdalja=1):
     min_vrednost = min(sosedi.values()) #poiscemo minimalno vrednost sosedov
     return sosedi, min_vrednost
 
-
 def maksimalno_stevilo_zogic_2d(st_zogic, st_kosev, razdalja=1):
     zacetek = time.time()
     kosi = [st_kosev*[0] for count in range(st_kosev)] #dodamo count, ker [[0]*st_kosev]*st_kosev dela probleme pri dodajanju zog v kose, saj spreminja vsako vrstico namesto posameznega elementa
@@ -62,7 +60,6 @@ def maksimalno_stevilo_zogic_2d(st_zogic, st_kosev, razdalja=1):
     konec = time.time()
     casovna_zahtevnost = f'{konec-zacetek}' #izracunamo casovno zahtevnost algoritma
     return maksimum, casovna_zahtevnost, delez_kosev
-
 
 def ponovi_maksimalno_stevilo_zogic(st_ponovitev, st_zogic, st_kosev, razdalja=1, dimenzija=1): #funkcija, ki ponovi nakljucno razporejanje zogic st_ponovitev-krat
     max_vrednosti = []
@@ -90,7 +87,6 @@ def ponovi_maksimalno_stevilo_zogic(st_ponovitev, st_zogic, st_kosev, razdalja=1
         raise ValueError("Neveljavna dimenzija")
     return povprecna_max_vrednost, casovna_zahtevnost, povprecni_delez_kosev
 
-
 def zapisi_rezultate(st_poskusov, st_ponovitev, st_zogic, st_kosev, razdalja=1, dimenzija=1): #zapisemo nase poizkuse v csv datoteke
     datoteka = "maksimalno_stevilo_zogic_%d_%d_%d_%d_%d_%d.csv" % (st_poskusov, st_ponovitev, st_zogic, st_kosev, razdalja, dimenzija) #shranimo datoteko glede na razlicne parametre
     with open(datoteka, "w") as f:
@@ -101,6 +97,12 @@ def zapisi_rezultate(st_poskusov, st_ponovitev, st_zogic, st_kosev, razdalja=1, 
             writer.writerow([max, delez_kosev, casovna_zahtevnost]) #zapisemo v vrstico
             f.flush()  #zapise takoj brez bufferja
 
-#print(maksimalno_stevilo_zogic(10000,10000,1))
+
+
+
 #zapisi_rezultate(100,100, 10000, 10000,1,1)
-#zapisi_rezultate(100,100,10000,100,1,2)
+#zapisi_rezultate(100,100, 20000, 10000,1,1)
+#zapisi_rezultate(100,100, 30000, 10000,1,1)
+#zapisi_rezultate(100,100, 40000, 10000,1,1)
+#zapisi_rezultate(100,100, 50000, 10000,1,1)
+zapisi_rezultate(100,100, 60000, 10000,1,1)
