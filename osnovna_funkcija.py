@@ -56,7 +56,7 @@ def maksimalno_stevilo_zogic_2d(st_zogic, st_kosev, razdalja=1):
         kosi[vrstica][stolpec] += 1 #minimalnemu sosedu dodamo zogo
     maksimum = max(max(vrstica for vrstica in kosi)) #poiscemo maksimalno stevilo zog v posameznem kosu
     st_kosev_z_max_vrednostjo = sum([vrstica.count(maksimum) for vrstica in kosi]) #prestejemo stevilo kosev, ki imajo maksimalno vrednost
-    delez_kosev = st_kosev_z_max_vrednostjo / st_kosev #izracunamo delez kosev z maksimalno vrednostjo
+    delez_kosev = st_kosev_z_max_vrednostjo / (st_kosev*st_kosev) #izracunamo delez kosev z maksimalno vrednostjo
     konec = time.time()
     casovna_zahtevnost = f'{konec-zacetek}' #izracunamo casovno zahtevnost algoritma
     return maksimum, casovna_zahtevnost, delez_kosev
@@ -88,7 +88,7 @@ def ponovi_maksimalno_stevilo_zogic(st_ponovitev, st_zogic, st_kosev, razdalja=1
     return povprecna_max_vrednost, casovna_zahtevnost, povprecni_delez_kosev
 
 def zapisi_rezultate(st_poskusov, st_ponovitev, st_zogic, st_kosev, razdalja=1, dimenzija=1): #zapisemo nase poizkuse v csv datoteke
-    datoteka = "maksimalno_stevilo_zogic_%d_%d_%d_%d_%d_%d.csv" % (st_poskusov, st_ponovitev, st_zogic, st_kosev, razdalja, dimenzija) #shranimo datoteko glede na razlicne parametre
+    datoteka = "podatki/maksimalno_stevilo_zogic_%d_%d_%d_%d_%d_%d.csv" % (st_poskusov, st_ponovitev, st_zogic, st_kosev, razdalja, dimenzija) #shranimo datoteko glede na razlicne parametre
     with open(datoteka, "w") as f:
         writer = csv.writer(f)
         writer.writerow(["Maksimum", "Delez_kosev_z_maksimalnim_stevilom_zog", "Casovna_zahtevnost"]) #zapisemo naslove stolpcev
@@ -104,5 +104,15 @@ def zapisi_rezultate(st_poskusov, st_ponovitev, st_zogic, st_kosev, razdalja=1, 
 #zapisi_rezultate(100,100, 20000, 10000,1,1)
 #zapisi_rezultate(100,100, 30000, 10000,1,1)
 #zapisi_rezultate(100,100, 40000, 10000,1,1)
-#zapisi_rezultate(100,100, 50000, 10000,1,1)
-zapisi_rezultate(100,100, 60000, 10000,1,1)
+#zapisi_rezultate(100,100, 10000, 10000,2,1)
+#zapisi_rezultate(100,100, 10000, 10000,3,1)
+#zapisi_rezultate(100,100, 10000, 10000,4,1)
+#zapisi_rezultate(100,100, 10000, 10000,5,1)
+#zapisi_rezultate(100,100, 10000, 10000,6,1)
+zapisi_rezultate(100,100, 10000, 100,1,2)
+zapisi_rezultate(100,100, 20000, 100,1,2)
+zapisi_rezultate(100,100, 30000, 100,1,2)
+zapisi_rezultate(100,100, 40000, 100,1,2)
+zapisi_rezultate(100,100, 50000, 100,1,2)
+zapisi_rezultate(100,100, 60000, 100,1,2)
+
