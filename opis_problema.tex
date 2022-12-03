@@ -12,19 +12,21 @@
 
 \begin{document}
 
+
 \thispagestyle{empty}
 \begin{center}
 \begin{minipage}{0.75\linewidth}
     \centering
     {\Large Univerza v Ljubljani \\ Fakulteta za matematiko in fiziko}
     \\
-    \vspace{3cm}
+    \vspace{7cm}
 
     {\uppercase{\Large \textbf{The power of adjacent choices}}} \\ Finančni praktikum \\
     \vspace{3cm}
 
-    {\Large Maša Orelj, Justin Raišp\par}
-    \vspace{9cm}
+    Avtorja:\\
+    {\Large Justin Raišp, Maša Orelj\par}
+    \vspace{7cm}
 
     {\Large Ljubljana, 2022}
 \end{minipage}
@@ -61,35 +63,30 @@ $$ \text{število košev} = n,\  \text{število žog} = n, \ \text{število levi
 
 \begin{verbatim}
 #OSNOVNI PROGRAM
-def maksimalno_stevilo_zogic(n):
-    B = [0]*n
-    x = 0
-    while x <= n-1:
-        izbrana_kosarica = random.randrange(n)
-        if izbrana_kosarica == 0:
-            sosedi = [B[-1]] + B[0:2]
-            minimalni_sosed = min(sosedi)
-            indeks = sosedi.index(minimalni_sosed)
-            if indeks == 0:
-                B[-1] += 1
-            else:
-                B[izbrana_kosarica -1] += 1
-            x += 1
-        elif izbrana_kosarica == n-1:
-            sosedi = B[n-2:n] + [B[0]]
-            minimalni_sosed = min(sosedi)
-            indeks = sosedi.index(minimalni_sosed)
-            if indeks == 0:
-                B[0] += 1
-            else:
-                B[izbrana_kosarica-2] +=1
-            x += 1
-        else:
-            minimalni_sosed = min(B[izbrana_kosarica -1 : izbrana_kosarica +2])
-            indeks = B[izbrana_kosarica - 1 : izbrana_kosarica + 2].index(minimalni_sosed)
-            B[izbrana_kosarica -1 + indeks] += 1
-            x += 1
-    return max(B)
+def najdi_sosede_1d(kosi,izbrana_kosarica, razdalja=1):
+    sosedi = {}
+    st_kosev = len(kosi)
+    for j in range((-razdalja),(razdalja+1)):
+        indeks_soseda = (izbrana_kosarica + j) % st_kosev #najde indeks soseda v listu s pomocjo modula, da velja kroznost
+        sosedi[indeks_soseda] = kosi[indeks_soseda] #v slovar sosedov dodamo njegov indeks kot kljuc in njegovo stevilo zog kot vrednost
+    min_vrednost = min(sosedi.values()) #izmed sosedov poiscemo minimalno vrednost
+    return sosedi, min_vrednost
+
+def maksimalno_stevilo_zogic(st_zogic, st_kosev, razdalja=1):
+    zacetek = time.time()
+    kosi = [0]*st_kosev
+    for i in range(st_zogic):
+        izbrana_kosarica = random.randrange(st_kosev) 
+        sosedi, min_vrednost = najdi_sosede_1d(kosi, izbrana_kosarica, razdalja) #iz nase pomozne funkcije dobimo sosede in minimalno vrednost
+        kandidati = [k for k,v in sosedi.items() if v == min_vrednost] #poiscemo vse kandidate, ki so sosedi in imajo minimalno vrednost
+        min_sosed = min(kandidati) #izmed kandidatov vzamemo tistega z najnizjim indeksom
+        kosi[min_sosed] += 1 #minimalnemu sosedu dodamo zogo
+    maksimum = max(kosi) #poiscemo maksimalno stevilo zog v posameznem kosu
+    st_kosev_z_max_vrednostjo = kosi.count(max(kosi)) #prestejemo stevilo kosev, ki imajo maksimalno stevilo zog
+    delez_kosev = st_kosev_z_max_vrednostjo / st_kosev #izracunamo delez kosev z maksimalnim stevilom zog
+    konec = time.time()
+    casovna_zahtevnost = f'{konec-zacetek}' #izracunamo casovno zahtevnost algoritma
+    return maksimum, casovna_zahtevnost, delez_kosev
 \end{verbatim}
 
 \noindent V naslednjem koraku bova program prilagodila tako, da bova število sosedov in večkratnost žog vključila kot spremenljivki,
