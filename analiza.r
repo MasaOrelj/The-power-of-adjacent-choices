@@ -13,7 +13,6 @@ dim1_20000_10000_1 <- read.csv("podatki/maksimalno_stevilo_zogic_100_100_20000_1
 dim1_30000_10000_1 <- read.csv("podatki/maksimalno_stevilo_zogic_100_100_30000_10000_1_1.csv")
 dim1_40000_10000_1 <- read.csv("podatki/maksimalno_stevilo_zogic_100_100_40000_10000_1_1.csv")
 dim1_50000_10000_1 <- read.csv("podatki/maksimalno_stevilo_zogic_100_100_50000_10000_1_1.csv")
-#dim1_60000_10000_1 <- read.csv("maksimalno_stevilo_zogic_100_100_60000_10000_1_1.csv")
 
 #plot(x=c(1:100), dim1_10000_10000_1$Maksimum)
 #abline(h=mean(dim1_10000_10000_1$Maksimum))
@@ -110,7 +109,6 @@ dim1_10000_10000_2 <- read.csv("podatki/maksimalno_stevilo_zogic_100_100_10000_1
 dim1_10000_10000_3 <- read.csv("podatki/maksimalno_stevilo_zogic_100_100_10000_10000_3_1.csv")
 dim1_10000_10000_4 <- read.csv("podatki/maksimalno_stevilo_zogic_100_100_10000_10000_4_1.csv")
 dim1_10000_10000_5 <- read.csv("podatki/maksimalno_stevilo_zogic_100_100_10000_10000_5_1.csv")
-#dim1_10000_10000_6 <- read.csv("podatki/maksimalno_stevilo_zogic_100_100_10000_10000_6_1.csv")
 
 #plot(x=c(1:100), dim1_10000_10000_1$Maksimum)
 #abline(h=mean(dim1_10000_10000_1$Maksimum))
@@ -163,7 +161,6 @@ dim2_20000_100_1 <- read.csv("podatki/maksimalno_stevilo_zogic_100_100_20000_100
 dim2_30000_100_1 <- read.csv("podatki/maksimalno_stevilo_zogic_100_100_30000_100_1_2.csv")
 dim2_40000_100_1 <- read.csv("podatki/maksimalno_stevilo_zogic_100_100_40000_100_1_2.csv")
 dim2_50000_100_1 <- read.csv("podatki/maksimalno_stevilo_zogic_100_100_50000_100_1_2.csv")
-dim2_60000_100_1 <- read.csv("podatki/maksimalno_stevilo_zogic_100_100_60000_100_1_2.csv")
 
 #Urejanje podatkov
 maksimumi_st_zog_2dim_1 <- rbind(dim2_10000_100_1, dim2_20000_100_1, dim2_30000_100_1, dim2_40000_100_1, dim2_50000_100_1)
@@ -203,7 +200,6 @@ dim2_10000_100_2 <- read.csv("podatki/maksimalno_stevilo_zogic_100_100_10000_100
 dim2_10000_100_3 <- read.csv("podatki/maksimalno_stevilo_zogic_100_100_10000_100_3_2.csv")
 dim2_10000_100_4 <- read.csv("podatki/maksimalno_stevilo_zogic_100_100_10000_100_4_2.csv")
 dim2_10000_100_5 <- read.csv("podatki/maksimalno_stevilo_zogic_100_100_10000_100_5_2.csv")
-dim2_10000_100_6 <- read.csv("podatki/maksimalno_stevilo_zogic_100_100_10000_100_6_2.csv")
 
 #Urejanje podatkov
 maksimumi_st_zog_2dim_k <- rbind(dim2_10000_100_1, dim2_10000_100_2, dim2_10000_100_3, dim2_10000_100_4,dim2_10000_100_5)
