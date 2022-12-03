@@ -1,0 +1,103 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage[slovene]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts,amsmath,amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\setlength\parindent{0pt}
+
+\begin{document}
+
+\thispagestyle{empty}
+\begin{center}
+\begin{minipage}{0.75\linewidth}
+    \centering
+    {\Large Univerza v Ljubljani \\ Fakulteta za matematiko in fiziko}
+    \\
+    \vspace{7cm}
+
+    {\uppercase{\Large \textbf{The power of adjacent choices}}} \\ Finančni praktikum \\
+    \vspace{3cm}
+
+    Avtorja:\\
+    {\Large Justin Raišp, Maša Orelj\par}
+    \vspace{7cm}
+
+    {\Large Ljubljana, 2022}
+\end{minipage}
+\end{center}
+
+\newpage
+
+\
+\section{Navodilo}
+
+Imamo $n$ žog in $n$ košev $b_1, \dots , b_n$, ki so prazni. Koši so postavljeni v krogu: koš $b_i$ ima soseda 
+$b_{i-1}$ in $b_{i+1}$, kjer zaradi krožnosti velja, da sta $b_1$ in $b_n$ soseda.
+Opazujemo naslednji naključen proces: Za vsako žogo naključno izberemo koš $b_i$, pogledamo še oba soseda in damo žogo 
+v koš z najmanjšim številom žog v tistem trenutku izmed teh treh. Zanima nas število žog v košu z največ žogami na koncu procesa. 
+Ta proces potem razširimo na več načinov:
+\begin{itemize}
+    \item za sosede štejemo koše, ki so na razdaljah največ $2, 3, \dots$,
+    \item za $n$ košev vzamemo $2n, 3n, 4n, \dots$ žog,
+    \item iščemo koš z najmanjšim številom žog.
+\end{itemize}  
+Opazujemo lahko tudi dvodimenzionalno mrežo košev s topologijo torusa. Torej imamo npr. $n^2$ košev $b_{i,j}$, kjer sta 
+$i, j \in [n]$, kjer za soseda $b_{i,j}$ in $b_{k,l}$ velja $|i - k| + |j - l| = 1$. Soseda sta tudi
+$b_{1,i}$ in $b_{n,i}$  ter $b_{i,1}$ in $b_{i,n}$. Podobno lahko gledamo tudi tridimenzionalno verzijo.
+
+
+
+\section{Program za reševanje problema}
+Za reševanje opisanega problema sva uporabila programski jezik \emph{Python}. Začela sva s pisanjem ustreznega programa za reševanje
+naloge v eni dimenziji, pri katerem je možno spreminjanje števila sosedov(razdalje), koločine žog in količine košev. Pri tem sva privzela, da v
+primeru, ko je košev z najmanjšim številom žog med pregledanimi koši več, položimo žogo v koš z najmanjšim indeksom. 
+
+\begin{verbatim}
+    #ISKANJE SOSEDOV
+    def najdi_sosede_1d(kosi,izbrana_kosarica, razdalja=1):
+    sosedi = {}
+    st_kosev = len(kosi)
+    for j in range((-razdalja),(razdalja+1)):
+        najdi indeks soseda v listu s pomocjo modula, da velja kroznost
+        v slovar sosedov dodaj njegov indeks kot kljuc in njegovo stevilo zog kot vrednost
+    izmed sosedov poisi tistega z minimalno vrednost
+    return sosedi, minimalna_vrednost
+\end{verbatim}
+
+\pagebreak
+\begin{verbatim}
+    #ISKANJE MAKSIMALNEGA STEVILA ZOG
+    def maksimalno_stevilo_zogic(st_zogic, st_kosev, razdalja=1):
+    zacetek merjenja casa
+    kosi = [0]*st_kosev
+    for i in range(st_zogic):
+        nakljucno izberemo kosarico
+        najdi_sosede_1d(kosi, izbrana_kosarica, razdalja) #s pomozno funkcijo doloci sosede in minimalno vrednost
+        poisci vse kandidate, ki so sosedi in imajo minimalno vrednost
+        izmed kandidatov izberi tistega z najnizjim indeksom
+        kosi[minimalni_sosed] += 1 
+    poisci maksimalno stevilo zog v kosu
+    prestej stevilo kosev z maksimalnim stevilom zog
+    izracunaj delez kosev z maksimalnim stevilom zog
+    konec merjenja casa
+    izracunaj casovno zahtevnost algoritma
+    return maksimalno_stevilo_zog, casovna_zahtevnost, delez_kosev
+
+
+\end{verbatim}
+
+Funkcija $maksimalno\_stevilo\_zogic$ torej sprejme izbrano število žog, število košar in razdalja, vrne pa vrednost maksimalnega število žog v košari,
+potreben čas za izvedbo funkcije in delež košar z maksimalnim številom žog.
+\bigbreak
+Program sva prilagodila tudi na dvodimenzionalno mrežo košev, ki deluje na podoben način.
+
+
+
+\section{Analiza rezultatov}
+
+\end{document}
