@@ -104,15 +104,22 @@ def zapisi_rezultate(st_poskusov, st_ponovitev, st_zogic, st_kosev, razdalja=1, 
 #zapisi_rezultate(100,100, 20000, 10000,1,1)
 #zapisi_rezultate(100,100, 30000, 10000,1,1)
 #zapisi_rezultate(100,100, 40000, 10000,1,1)
+#zapisi_rezultate(100,100, 50000, 10000,1,1)
 #zapisi_rezultate(100,100, 10000, 10000,2,1)
 #zapisi_rezultate(100,100, 10000, 10000,3,1)
 #zapisi_rezultate(100,100, 10000, 10000,4,1)
 #zapisi_rezultate(100,100, 10000, 10000,5,1)
-#zapisi_rezultate(100,100, 10000, 10000,6,1)
-zapisi_rezultate(100,100, 10000, 100,1,2)
-zapisi_rezultate(100,100, 20000, 100,1,2)
-zapisi_rezultate(100,100, 30000, 100,1,2)
-zapisi_rezultate(100,100, 40000, 100,1,2)
-zapisi_rezultate(100,100, 50000, 100,1,2)
-zapisi_rezultate(100,100, 60000, 100,1,2)
+
+#zapisi_rezultate(100,100, 10000, 100,1,2)
+#zapisi_rezultate(100,100, 20000, 100,1,2)
+#zapisi_rezultate(100,100, 30000, 100,1,2)
+#zapisi_rezultate(100,100, 40000, 100,1,2)
+#zapisi_rezultate(100,100, 50000, 100,1,2)
+#zapisi_rezultate(100,100, 10000, 100,2,2)
+#zapisi_rezultate(100,100, 10000, 100,3,2)
+#zapisi_rezultate(100,100, 10000, 100,4,2)
+#zapisi_rezultate(100,100, 10000, 100,5,2)
+
+
+
 
