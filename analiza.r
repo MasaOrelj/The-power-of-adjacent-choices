@@ -3,6 +3,7 @@ library(ggplot2)
 library(ggrepel)
 library(ggpubr)
 
+
 ############################################################
 # dim = 1, stevilo_zog = k*10000 (k=1,2,3,4,5), razdalja = 1
 ############################################################
@@ -150,7 +151,7 @@ graf_povp_3 <- enframe(povp3) %>% ggplot(
   labs(
     x = "Število žog (v 10000)",
     y = "Povprečno maksimalno število žog",
-    title = "Povprečno maksimalno število žog v košu glede na število žog"
+    title = "Povprečen maksimum glede na število žog"
   ) 
 graf_povp_3
 
@@ -188,7 +189,7 @@ graf_povp_4 <- enframe(povp4) %>% ggplot(
   labs(
     x = "Razdalja",
     y = "Povprečno maksimalno število žog",
-    title = "Povprečno maksimalno število žog v košu glede na razdaljo"
+    title = "Povprečen maksimum glede na razdaljo"
   ) 
 graf_povp_4
 
@@ -284,7 +285,7 @@ graf_povp_3d_maks <- enframe(povp3d_maks) %>% ggplot(
   geom_point(size = 3)+
   geom_label_repel(aes(label = value))+
   labs(
-    x = "Število žog (v 10000)",
+    x = "Število žog (v 8000)",
     y = "Maksimum zog",
     title="Povprečna maksimalna vrednost"
   ) 
@@ -298,9 +299,9 @@ graf_povp_3d_delez <- enframe(povp3d_delez) %>% ggplot(
   geom_point(size = 3)+
   geom_label_repel(aes(label = value))+
   labs(
-    x = "Število žog (v 10000)",
+    x = "Število žog (v 8000)",
     y = "Delež maksimalnih košar",
-    title="Deleži košar z maksimalnim številom žog"
+    title="Delež košev z maksimalno vrednostjo"
   ) 
 graf_povp_3d_delez
 
@@ -312,7 +313,7 @@ graf_povp_3d_cas <- enframe(povp3d_cas) %>% ggplot(
   geom_point(size = 3)+
   geom_label_repel(aes(label = value))+
   labs(
-    x = "Število žog (v 10000)",
+    x = "Število žog (v 8000)",
     y = "Časovna zahtevnost",
     title="Povprečna časovna zahtevnost"
   ) 
@@ -322,3 +323,4 @@ graf_povp_3d_cas
 graf_3d <- ggarrange(graf_povp_3d_maks, graf_povp_3d_delez, graf_povp_3d_cas,
                      ncol = 2, nrow = 2)
 graf_3d
+
