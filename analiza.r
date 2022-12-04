@@ -53,12 +53,12 @@ graf_povp_1 <- enframe(povp1) %>% ggplot(
   geom_label_repel(aes(label = value))+
   labs(
     x = "Število žog (v 10000)",
-    y = "Povprečno maksimalno število žog",
-    title = "Povprečno maksimalno število žog v košu glede na število žog"
+    y = "Povprečnen maksimum",
+    title = "Povprečen maksimum glede na število žog"
   ) 
 graf_povp_1
 
-par(mfrow=c(3,1))
+par(mfrow=c(2,2))
 
 plot(x=c(1:500), maksimumi_st_zog_1dim_1$Maksimum, type="p", pch=20, cex=0.5, main = "Maksimalna vrednost glede na število žog", ylab = "Maksimalno število žog v košu", xlab= "Število žog", xaxt = "n")
 axis(1, at=seq(50, 450, by=100), labels = c(10000, 20000, 30000, 40000, 50000))
@@ -104,19 +104,19 @@ graf_povp_2 <- enframe(povp2) %>% ggplot(
   labs(
     x = "Razdalja",
     y = "Povprečno maksimalno število žog",
-    title = "Povprečno maksimalno število žog v košu glede na razdaljo"
+    title = "Povprečen maksimum glede na razdaljo"
   ) 
 graf_povp_2
 
 
-par(mfrow=c(3,1))
-plot(x=c(1:500), maksimumi_st_zog_1dim_k$Maksimum, type="p", pch=20, cex=0.5, main = "Maksimalna vrednost glede na razdaljo", ylab = "Maksimalno število žog v košu", xlab = "Razdalja", xaxt = "n")
+par(mfrow=c(2,2))
+plot(x=c(1:500), maksimumi_st_zog_1dim_k$Maksimum, type="p", pch=20, cex=0.5, main = "Maksimalna vrednost", ylab = "Maksimalno število žog v košu", xlab = "Razdalja", xaxt = "n")
 axis(1, at=seq(50, 450, by=100), labels = c(1, 2, 3, 4, 5))
-plot(x=c(1:500), maksimumi_st_zog_1dim_k$Delez_kosev_z_maksimalnim_stevilom_zog, type="p", pch=20, cex=0.5, main = "Delež košev z maksimalno vrednostjo glede na razdaljo", ylab = "Delež košev z maksimlanim številom žog", xlab = "Razdalja", xaxt = "n")
+plot(x=c(1:500), maksimumi_st_zog_1dim_k$Delez_kosev_z_maksimalnim_stevilom_zog, type="p", pch=20, cex=0.5, main = "Delež košev z maksimalno vrednostjo", ylab = "Delež košev z maksimumom", xlab = "Razdalja", xaxt = "n")
 axis(1, at=seq(50, 450, by=100), labels = c(1, 2, 3, 4, 5))
-plot(x=c(1:500), maksimumi_st_zog_1dim_k$Casovna_zahtevnost, type="p", pch=20, cex=0.5, main = "Časovna zahtevnost glede na razdaljo", ylab = "Časovna zahtevnost", xlab = "Razdalja", xaxt = "n")
+plot(x=c(1:500), maksimumi_st_zog_1dim_k$Casovna_zahtevnost, type="p", pch=20, cex=0.5, main = "Časovna zahtevnost", ylab = "Časovna zahtevnost", xlab = "Razdalja", xaxt = "n")
 axis(1, at=seq(50, 450, by=100), labels = c(1, 2, 3, 4, 5))
-
+mtext("Odvisnost od razdalje", side=3, line=-1, outer= TRUE, col="darkred")
 
 graf_povp_1dim <-ggarrange(graf_povp_1, graf_povp_2, 
                            ncol = 2, nrow = 1)
@@ -154,16 +154,16 @@ graf_povp_3 <- enframe(povp3) %>% ggplot(
   ) 
 graf_povp_3
 
-par(mfrow=c(3,1))
-plot(x=c(1:500), maksimumi_st_zog_2dim_1$Maksimum, type="p", pch=20, cex=0.5, main = "Maksimalna vrednost glede na število žog", ylab = "Maksimalno število žog v košu", xlab= "Število žog", xaxt = "n")
+par(mfrow=c(2,2))
+plot(x=c(1:500), maksimumi_st_zog_2dim_1$Maksimum, type="p", pch=20, cex=0.5, main = "Maksimalna vrednost", ylab = "Maksimalno število žog v košu", xlab= "Število žog", xaxt = "n")
 axis(1, at=seq(50, 450, by=100), labels = c(10000, 20000, 30000, 40000, 50000))
-plot(x=c(1:500), maksimumi_st_zog_2dim_1$Delez_kosev_z_maksimalnim_stevilom_zog, type="p", pch=20, cex=0.5, main = "Delež košev z maksimalno vrednostjo glede na število žog", ylab = "Delež košev z maksimlanim številom žog", xlab = "Število žog", xaxt = "n")
+plot(x=c(1:500), maksimumi_st_zog_2dim_1$Delez_kosev_z_maksimalnim_stevilom_zog, type="p", pch=20, cex=0.5, main = "Delež košev z maksimalno vrednostjo", ylab = "Delež košev z maksimumom", xlab = "Število žog", xaxt = "n")
 axis(1, at=seq(50, 450, by=100), labels = c(10000, 20000, 30000, 40000, 50000))
-plot(x=c(1:500), maksimumi_st_zog_2dim_1$Casovna_zahtevnost, type="p", pch=20, cex=0.5, main = "Časovna zahtevnost glede na število žog", ylab = "Časovna zahtevnost", xlab = "Število žog", xaxt = "n")
+plot(x=c(1:500), maksimumi_st_zog_2dim_1$Casovna_zahtevnost, type="p", pch=20, cex=0.5, main = "Časovna zahtevnost", ylab = "Časovna zahtevnost", xlab = "Število žog", xaxt = "n")
 axis(1, at=seq(50, 450, by=100), labels = c(10000, 20000, 30000, 40000, 50000))
-
+mtext("Odvisnost od števila žog", side=3, line=-1, outer= TRUE, col="darkred")
 ##########################################################
-# dim = 1, stevilo_zog = 10000, razdalja = k (k=1,2,3,4,5)
+# dim = 2, stevilo_zog = 10000, razdalja = k (k=1,2,3,4,5)
 ##########################################################
 
 #Uvoz podatkov
@@ -192,14 +192,14 @@ graf_povp_4 <- enframe(povp4) %>% ggplot(
   ) 
 graf_povp_4
 
-par(mfrow=c(3,1))
-plot(x=c(1:500), maksimumi_st_zog_2dim_k$Maksimum, type="p", pch=20, cex=0.5, main = "Maksimalna vrednost glede na razdaljo", ylab = "Maksimalno število žog v košu", xlab= "Razdalja", xaxt = "n")
+par(mfrow=c(2,2))
+plot(x=c(1:500), maksimumi_st_zog_2dim_k$Maksimum, type="p", pch=20, cex=0.5, main = "Maksimalna vrednost", ylab = "Maksimalno število žog v košu", xlab= "Razdalja", xaxt = "n")
 axis(1, at=seq(50, 450, by=100), labels = c(1, 2, 3, 4, 5))
-plot(x=c(1:500), maksimumi_st_zog_2dim_k$Delez_kosev_z_maksimalnim_stevilom_zog, type="p", pch=20, cex=0.5, main = "Delež košev z maksimalno vrednostjo glede na razdaljo", ylab = "Delež košev z maksimlanim številom žog", xlab = "Razdalja", xaxt = "n")
+plot(x=c(1:500), maksimumi_st_zog_2dim_k$Delez_kosev_z_maksimalnim_stevilom_zog, type="p", pch=20, cex=0.5, main = "Delež košev z maksimalno vrednostjo", ylab = "Delež košev z maksimumom", xlab = "Razdalja", xaxt = "n")
 axis(1, at=seq(50, 450, by=100), labels = c(1, 2, 3, 4, 5))
-plot(x=c(1:500), maksimumi_st_zog_2dim_k$Casovna_zahtevnost, type="p", pch=20, cex=0.5, main = "Časovna zahtevnost glede na razdaljo", ylab = "Časovna zahtevnost", xlab = "Razdalja", xaxt = "n")
+plot(x=c(1:500), maksimumi_st_zog_2dim_k$Casovna_zahtevnost, type="p", pch=20, cex=0.5, main = "Časovna zahtevnost", ylab = "Časovna zahtevnost", xlab = "Razdalja", xaxt = "n")
 axis(1, at=seq(50, 450, by=100), labels = c(1, 2, 3, 4, 5))
-
+mtext("Odvisnost od razdalje", side=3, line=-1, outer= TRUE, col="darkred")
 
 
 graf_povp_2dim <-ggarrange(graf_povp_3, graf_povp_4, 
@@ -251,3 +251,74 @@ graf_povp_2_min
 graf_min <- ggarrange(graf_povp_1_min, graf_povp_2_min, 
                       ncol = 2, nrow = 1)
 graf_min
+
+
+
+###################################################################
+# dim = 3, stevilo_zog = k*8000 (k=1,2,3,4,5), razdalja = 1,
+###################################################################
+#Uvoz podatkov
+dim3_8000_100_1 <- read.csv("podatki/maksimalno_stevilo_zogic_100_100_8000_20_1_3.csv")
+dim3_16000_100_1 <- read.csv("podatki/maksimalno_stevilo_zogic_100_100_16000_20_1_3.csv")
+dim3_24000_100_1 <- read.csv("podatki/maksimalno_stevilo_zogic_100_100_24000_20_1_3.csv")
+dim3_32000_100_1 <- read.csv("podatki/maksimalno_stevilo_zogic_100_100_32000_20_1_3.csv")
+dim3_40000_100_1 <- read.csv("podatki/maksimalno_stevilo_zogic_100_100_40000_20_1_3.csv")
+
+#Urejanje podatkov
+maksimumi_st_zog_3dim_k <- rbind(dim3_8000_100_1, dim3_16000_100_1,dim3_24000_100_1, dim3_32000_100_1,dim3_40000_100_1)
+
+#Vizualizacija
+maks_zdruzena_dim3_razdalja <- cbind(dim3_8000_100_1[1], dim3_16000_100_1[1],dim3_24000_100_1[1], dim3_32000_100_1[1],dim3_40000_100_1[1])
+delez_zdruzena_dim3_razdalja <- cbind(dim3_8000_100_1[2], dim3_16000_100_1[2],dim3_24000_100_1[2], dim3_32000_100_1[2],dim3_40000_100_1[2])
+cas_zdruzena_dim3_razdalja <- cbind(dim3_8000_100_1[3], dim3_16000_100_1[3],dim3_24000_100_1[3], dim3_32000_100_1[3],dim3_40000_100_1[3])
+
+povp3d_maks <- round(apply(maks_zdruzena_dim3_razdalja, 2, mean), 2)
+povp3d_delez <- round(apply(delez_zdruzena_dim3_razdalja, 2, mean), 3)
+povp3d_cas <- round(apply(cas_zdruzena_dim3_razdalja, 2, mean), 2)
+
+#
+graf_povp_3d_maks <- enframe(povp3d_maks) %>% ggplot(
+  mapping = aes(x=c(1:5), y = value)
+)+
+  geom_line()+
+  geom_point(size = 3)+
+  geom_label_repel(aes(label = value))+
+  labs(
+    x = "Število žog (v 10000)",
+    y = "Maksimum zog",
+    title="Povprečna maksimalna vrednost"
+  ) 
+graf_povp_3d_maks
+
+#
+graf_povp_3d_delez <- enframe(povp3d_delez) %>% ggplot(
+  mapping = aes(x=c(1:5), y = value)
+)+
+  geom_line()+
+  geom_point(size = 3)+
+  geom_label_repel(aes(label = value))+
+  labs(
+    x = "Število žog (v 10000)",
+    y = "Delež maksimalnih košar",
+    title="Deleži košar z maksimalnim številom žog"
+  ) 
+graf_povp_3d_delez
+
+#
+graf_povp_3d_cas <- enframe(povp3d_cas) %>% ggplot(
+  mapping = aes(x=c(1:5), y = value)
+)+
+  geom_line()+
+  geom_point(size = 3)+
+  geom_label_repel(aes(label = value))+
+  labs(
+    x = "Število žog (v 10000)",
+    y = "Časovna zahtevnost",
+    title="Povprečna časovna zahtevnost"
+  ) 
+graf_povp_3d_cas
+
+
+graf_3d <- ggarrange(graf_povp_3d_maks, graf_povp_3d_delez, graf_povp_3d_cas,
+                     ncol = 2, nrow = 2)
+graf_3d

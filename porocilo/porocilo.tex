@@ -33,8 +33,10 @@
 \end{minipage}
 \end{center}
 
-\newpage
 
+\newpage
+\tableofcontents
+\newpage
 \
 \section{Navodilo}
 
@@ -105,10 +107,11 @@ in povprečno časovno zahtevnost, nato pa postopek ponovil še $100$-krat.
 Tako sva dobila željene podatke, ki so se zapisali v csv datoteke. 
 
 \section{Analiza rezultatov}
+\subsection{Enodimenzionalen problem}
 V naslednjem koraku sva se lotila analize rezultatov. Začela sva z opazovanjem podatkov v eni dimenziji in ugotavljala vpliv spreminjanja razdalje ter števila žog na opazovane tri vrednosti.
+\bigbreak
 
-
-\includegraphics[width=12cm, height=6cm]{povprecje_1dim.png}
+\includegraphics[width=12cm, height=6cm]{povprecje_1dim1.png}
 
 Na prvem grafu je prikazano spreminjanje povprečnega maksimalnega števila žog v košu v odvisnosti od števila žog oz. razdalje.
 Iz levega grafa je razvidno, da povprečna maksimalna vrednost raste s številom žog, skok pa je največji pri prvem prehodu.
@@ -116,7 +119,7 @@ Na podlagi desnega grafa predvidevava, da bo povprečna maksimalna vrednost, pri
 \bigbreak
 
 
-\includegraphics[width=12cm, height=8cm]{dim1_glede_na_stevilo_zog.png}
+\includegraphics[width=12cm, height=8cm]{dim1_glede_na_stevilo_zog1.png}
 
 Zgornji graf prikazuje razpršenost in gibanje rezultatov glede na število žog. Vsaka pikica predstavlja povprečje opazovane vrednosti pridobljeno s $100$-kratno ponovitvijo poskusa (prej omenjen postopek generiranja rezultatov).
 Razvidno je, da za nobeno izbrano količino žog povprečna maksimalna vrednost pretirano ne odstopa. Večje razlike pa so opazne pri deležu košar z maksimalno vrednostjo. Rezultati so bolj razpršeni za manjše količine žog, še posebaj zanimiv pa je rezultat
@@ -125,33 +128,54 @@ pri količini 30000, kjer so odstopanja minimalna, torej so pri izvedbi poskusa 
  
 
 
-\includegraphics[width=12cm, height= 8cm]{dim1_glede_na_razdaljo.png}
+\includegraphics[width=12cm, height= 8cm]{dim1_glede_na_razdaljo1.png}
 
 Druga sprmenljivka, ki naju je zanima je razdalja oz. število sosedov, njen vpliv pa je prikazan na zgornjem grafu.
 Tokrat opazimo, da se razpršenost deleža košev veča z razdalj. Predvidevava, da z večanjem števila sosedov raste delež košev z maksimalno vrendostjo, saj se žoge razporejajo bolj enakomerno.
 Časovna zahtevnost je veliko bolj razpršena, odstopanja se pojavljajo, ker z večanjem sosedov posledično vplivamo na večanje variabilnosti možnih kandidatov z minimalno vrednostjo žog v košari. Ob spreminjanju števila kandidatov pa se nato spreminja časovna zahtevnost.
 \bigbreak
+
+\subsection{Dvodimenzionalen problem}
 V dvodimenzionalnem primeru sva poskuse izvajala na podoben način, zato sva tudi rezultate ponazorila podobno.
 
-\includegraphics[width=12cm, height=6cm]{povprecje_2dim.png}
+\includegraphics[width=12cm, height=6cm]{povprecje_2dim1.png}
 
 Povprečne maksimalne vrednoti so veliko manjše kot v enodimenzionalnem primeru, saj pride do večje prerazporeditve. Na desnem grafu vrendosti tudi veliko hitreje konvergirajo, kar je pričakovano, saj se število sosedov poveča za faktor $+4$ vsakič ko povečamo razdaljo, 
 medtem ko se je v prejšnem primeru povečal le za $+2$.
-
-\includegraphics[width=12cm, height= 8cm]{dim2_glede_na_stevilo_zog.png}
+\bigbreak
+\includegraphics[width=12cm, height= 8cm]{dim2_glede_na_stevilo_zog1.png}
 
 Delež košev z maksimalno vrednostjo je veliko večji kot pri prejšnjem primeru, kar pomeni, da se žoge v dvodimenzionalnem modelu razporejajo veliko bolj enakomerno. Vidimo tudi, da delež pada z večanjem žog in predvidevava, da se delež premika proti $0$.
+\bigbreak
+\includegraphics[width=12cm, height= 8cm]{dim2_glede_na_razdaljo1.png}
 
-\includegraphics[width=12cm, height= 8cm]{dim2_glede_na_razdaljo.png}
-
-\pagebreak
 
 Takoj opazimo, da se rezultati na razdalji $1$ na vseh treh grafih močno razlikujejo od ostalih. Delež od razdalje $2$ dalje ni več razpršen, torej se rezultati dokaj ustalijo (vsakič dobimo zelo podobne vrednosti). Predvidevava, da bi delež
 z večanjem razdalje padal proti 0.
 Pri časovni zahtevnosti lahko razpršenost utemeljimo s podobnim argumentom kot v enodimenzionalnem primeru.
-
+\\
+\subsubsection{Minimalna vrednost}
+Odločila sva se tudi za analizo minimalnega števila žog v koših in deleža košev z minimalnim številom žog.
+\bigbreak
 \includegraphics[width=12cm, height=6cm]{minimum.png}
 
-Odločila sva se tudi za analizo minimalnega števila žog v koših in deleža košev z minimalnim številom žog.
 Opazimo, da se z večanjem števila žog minimalna vrednost hitro začne razlikovati od 0, hkrati pa lahko predvidevamo, da se delež košov asimptotsko približuje $0$. 
+
+\subsection{Trodimenzionalen problem}
+
+Lotila sva se tudi problema soseske, kjer so košare predstavljene v tridimenzionalnem formatu.
+V tem primeru sta $b_{i,j,k} $in$ b_{i',j',l'}$ soseda, ko velja $|i-i'|+|j-j'|+|l-l'| = 1$, ter so paroma sosedje 
+$b_{1,j,k} $ in $b_{n,j,k}$, $b_{i,1,k} $ in $b_{i,n,k}$ ter $b_{i,j,1} $ in $b_{i,j,n}$.
+\linebreak
+Generirala sva $100$ povprečij $100$ naključnih poskusov, kjer imamo $k \cdot 8000$ žog in $8000$ košar, $k=1,2, \dots, 5$. 
+Shranila sva si podakte o povprečnem največjem število žog v posamezni košari, časovno zahtevnost generiranja ter delež košar z 
+maksimalnim številom žog. V spodnjih grafih so prikazana povprečja posameznih rezultatov. 
+\bigbreak
+\includegraphics[scale=0.65]{graf_3d1.png}
+\\
+Glede na generirane podatke ocenjujeva, da se maksimalna vrednost žog v posamezni košari veča za približno $1,02$ z večanjem
+števila žog. Delež košov z maksimalno vrednostjo ima v prvem koraku malo večji skok, kjer se delež poveča za 
+$0.01$, potem pa se rast precej umiri, kjer so razlike med koraki približno $0.001$. Časovna zahtevnost se z vsakim večanjem žog poveča za nekje med $3$ in $4$ sekunde.
+
+
 \end{document}

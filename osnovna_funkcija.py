@@ -183,8 +183,8 @@ def zapisi_rezultate(st_poskusov, st_ponovitev, st_zogic, st_kosev, razdalja=1, 
 #zapisi_rezultate(100,100, 50000, 10000,1,1, True)
 
 
-zapisi_rezultate(100,100, 8000, 20,1,3)
-zapisi_rezultate(100,100, 16000, 20,1,3)
-zapisi_rezultate(100,100, 24000, 20,1,3)
-zapisi_rezultate(100,100, 32000, 20,1,3)
-zapisi_rezultate(100,100, 40000, 20,1,3)
+#zapisi_rezultate(100,100, 8000, 20,1,3)
+#zapisi_rezultate(100,100, 16000, 20,1,3)
+#zapisi_rezultate(100,100, 24000, 20,1,3)
+#zapisi_rezultate(100,100, 32000, 20,1,3)
+#zapisi_rezultate(100,100, 40000, 20,1,3)
