@@ -14,6 +14,13 @@ dim1_30000_10000_1 <- read.csv("podatki/maksimalno_stevilo_zogic_100_100_30000_1
 dim1_40000_10000_1 <- read.csv("podatki/maksimalno_stevilo_zogic_100_100_40000_10000_1_1.csv")
 dim1_50000_10000_1 <- read.csv("podatki/maksimalno_stevilo_zogic_100_100_50000_10000_1_1.csv")
 
+#uvoz za minimalno stevilo zog
+dim1_10000_10000_1_min <- read.csv("podatki/minimalno_stevilo_zogic_100_100_10000_10000_1_1.csv")
+dim1_20000_10000_1_min <- read.csv("podatki/minimalno_stevilo_zogic_100_100_20000_10000_1_1.csv")
+dim1_30000_10000_1_min <- read.csv("podatki/minimalno_stevilo_zogic_100_100_30000_10000_1_1.csv")
+dim1_40000_10000_1_min <- read.csv("podatki/minimalno_stevilo_zogic_100_100_40000_10000_1_1.csv")
+dim1_50000_10000_1_min <- read.csv("podatki/minimalno_stevilo_zogic_100_100_50000_10000_1_1.csv")
+
 #plot(x=c(1:100), dim1_10000_10000_1$Maksimum)
 #abline(h=mean(dim1_10000_10000_1$Maksimum))
 #plot(x=c(1:100), dim1_20000_10000_1$Maksimum)
@@ -28,7 +35,7 @@ dim1_50000_10000_1 <- read.csv("podatki/maksimalno_stevilo_zogic_100_100_50000_1
 #Urejanje podatkov
 
 maksimumi_st_zog_1dim_1 <- rbind(dim1_10000_10000_1, dim1_20000_10000_1, dim1_30000_10000_1,dim1_40000_10000_1, dim1_50000_10000_1)
-
+minimumi_st_zog_1dim_1 <- rbind(dim1_10000_10000_1_min, dim1_20000_10000_1_min, dim1_30000_10000_1_min, dim1_40000_10000_1_min, dim1_50000_10000_1_min)
 
 #Vizualizacija
 
@@ -54,6 +61,7 @@ graf_povp_1 <- enframe(povp1) %>% ggplot(
     title = "Povprečno maksimalno število žog v košu glede na število žog"
   ) 
 graf_povp_1
+
 #
 #graf1 <- maks_zdruzena_dim1_zogice_preurejena %>% filter(colname %in% maks_zdruzena_dim1_zogice_preurejena$colname)%>%
 #  ggplot(
@@ -229,3 +237,45 @@ axis(1, at=seq(50, 450, by=100), labels = c(1, 2, 3, 4, 5))
 plot(x=c(1:500), maksimumi_st_zog_2dim_k$Casovna_zahtevnost, type="p", pch=20, cex=0.5, main = "Časovna zahtevnost glede na razdaljo", ylab = "Časovna zahtevnost", xlab = "Razdalja", xaxt = "n")
 axis(1, at=seq(50, 450, by=100), labels = c(1, 2, 3, 4, 5))
 
+
+
+###################################################################
+# dim = 1, stevilo_zog = k*10000 (k=1,2,3,4,5), razdalja = 1, minimum
+###################################################################
+
+
+#minimum
+min_zdruzena_dim1_zogice <- cbind(dim1_10000_10000_1_min[1], dim1_20000_10000_1_min[1], dim1_30000_10000_1_min[1], dim1_40000_10000_1_min[1],dim1_50000_10000_1_min[1])
+colnames(min_zdruzena_dim1_zogice) <- c("min_10000", "min_20000", "min_30000", "min_40000", "min_50000")
+povp1_min <- apply(min_zdruzena_dim1_zogice, 2, mean)
+#
+graf_povp_1_min <- enframe(povp1_min) %>% ggplot(
+  mapping = aes(x=c(1:5), y = value)
+)+
+  geom_line()+
+  geom_point(size = 3)+
+  geom_label_repel(aes(label = value))+
+  labs(
+    x = "Število žog (v 10000)",
+    y = "Povprečno minimalno število žog",
+    title = "Povprečno minimalno število žog v košu glede na število žog"
+  ) 
+graf_povp_1_min
+
+
+min_zdruzena_dim1_zogice_delezi <- cbind(dim1_10000_10000_1_min[2], dim1_20000_10000_1_min[2], dim1_30000_10000_1_min[2], dim1_40000_10000_1_min[2],dim1_50000_10000_1_min[2])
+colnames(min_zdruzena_dim1_zogice) <- c("delez_10000", "delez_20000", "delez_30000", "delez_40000", "delez_50000")
+povp2_min <-apply(min_zdruzena_dim1_zogice_delezi, 2, mean)
+#
+graf_povp_2_min <- enframe(povp2_min) %>% ggplot(
+  mapping = aes(x=c(1:5), y = value)
+)+
+  geom_line()+
+  geom_point(size = 3)+
+  geom_label_repel(aes(label = value))+
+  labs(
+    x = "Število žog (v 10000)",
+    y = "Delež košev z minimalnim številom žog",
+    title = "Delež košev z minimalno vrednostjo glede na razdaljo"
+  ) 
+graf_povp_2_min
