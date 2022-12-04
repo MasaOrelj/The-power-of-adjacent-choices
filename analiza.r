@@ -1,6 +1,7 @@
 library(tidyverse)
 library(ggplot2)
 library(ggrepel)
+library(ggpubr)
 
 ############################################################
 # dim = 1, stevilo_zog = k*10000 (k=1,2,3,4,5), razdalja = 1
@@ -258,7 +259,7 @@ graf_povp_1_min <- enframe(povp1_min) %>% ggplot(
   labs(
     x = "Število žog (v 10000)",
     y = "Povprečno minimalno število žog",
-    title = "Povprečno minimalno število žog v košu glede na število žog"
+    title= "Delež minimalnih vrednosti"
   ) 
 graf_povp_1_min
 
@@ -276,6 +277,10 @@ graf_povp_2_min <- enframe(povp2_min) %>% ggplot(
   labs(
     x = "Število žog (v 10000)",
     y = "Delež košev z minimalnim številom žog",
-    title = "Delež košev z minimalno vrednostjo glede na razdaljo"
+    title="Minimalna vrednost"
   ) 
 graf_povp_2_min
+
+graf_min <- ggarrange(graf_povp_1_min, graf_povp_2_min, 
+                      ncol = 2, nrow = 1)
+graf_min
