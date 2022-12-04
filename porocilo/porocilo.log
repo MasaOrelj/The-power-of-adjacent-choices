@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.10.5)  3 DEC 2022 22:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.10.5)  4 DEC 2022 20:54
 entering extended mode
 **"c:/Users/Masa Orelj/Desktop/Projekt_FP/The-power-of-adjacent-choices/porocilo/porocilo.tex"
 ("c:/Users/Masa Orelj/Desktop/Projekt_FP/The-power-of-adjacent-choices/porocilo/porocilo.tex"
@@ -120,6 +120,24 @@ Package: amsthm 2020/05/29 v2.20.6
 \thm@postskip=\skip53
 \thm@headsep=\skip54
 \dth@everypar=\toks28
+) ("C:\Users\Masa Orelj\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty"
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+ ("C:\Users\Masa Orelj\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks29
+) ("C:\Users\Masa Orelj\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty"
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+ ("C:\Users\Masa Orelj\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+) ("C:\Users\Masa Orelj\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+ ("C:\Users\Masa Orelj\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def"
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen145
+\Gin@req@width=\dimen146
 ) ("C:\Users\Masa Orelj\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdfmode.def"
 File: l3backend-pdfmode.def 2020-06-29 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count189
@@ -127,76 +145,132 @@ File: l3backend-pdfmode.def 2020-06-29 L3 backend support: PDF mode
 ) ("c:/Users\Masa Orelj\Desktop\Projekt_FP\The-power-of-adjacent-choices\porocilo\porocilo.aux")
 \openout1 = `porocilo.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 31.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+ ("C:\Users\Masa Orelj\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count190
+\scratchdimen=\dimen147
+\scratchbox=\box48
+\nofMPsegments=\count191
+\nofMParguments=\count192
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count193
+\MPscratchDim=\dimen148
+\MPnumerator=\count194
+\makeMPintoPDFobject=\count195
+\everyMPtoPDFconversion=\toks31
+) ("C:\Users\Masa Orelj\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty"
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+)
+LaTeX Font Info:    Trying to load font information for U+msa on input line 33.
  ("C:\Users\Masa Orelj\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 31.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 33.
  ("C:\Users\Masa Orelj\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {C:/Users/Masa Orelj/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 60.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 62.
  ("C:\Users\Masa Orelj\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd"
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-Overfull \hbox (41.74434pt too wide) in paragraph at lines 70--70
+Overfull \hbox (41.74434pt too wide) in paragraph at lines 72--72
 []        \T1/cmtt/m/n/10.95 najdi indeks soseda v listu s pomocjo modula, da velja kroznost[] 
  []
 
 
-Overfull \hbox (149.25339pt too wide) in paragraph at lines 70--70
+Overfull \hbox (149.25339pt too wide) in paragraph at lines 72--72
 []        \T1/cmtt/m/n/10.95 v slovar sosedov dodaj njegov indeks kot kljuc in njegovo stevilo zog kot vrednost[] 
  []
 
 [2]
-Overfull \hbox (7.79411pt too wide) in paragraph at lines 92--92
+Overfull \hbox (7.79411pt too wide) in paragraph at lines 94--94
 []    \T1/cmtt/m/n/10.95 def maksimalno_stevilo_zogic(st_zogic, st_kosev, razdalja=1):[] 
  []
 
 
-Overfull \hbox (279.39592pt too wide) in paragraph at lines 92--92
+Overfull \hbox (279.39592pt too wide) in paragraph at lines 94--94
 []        \T1/cmtt/m/n/10.95 najdi_sosede_1d(kosi, izbrana_kosarica, razdalja) #s pomozno funkcijo doloci sosede in minimalno vrednost[] 
  []
 
 
-Overfull \hbox (36.08597pt too wide) in paragraph at lines 92--92
+Overfull \hbox (36.08597pt too wide) in paragraph at lines 94--94
 []        \T1/cmtt/m/n/10.95 poisci vse kandidate, ki so sosedi in imajo minimalno vrednost[] 
  []
 
 
-Overfull \hbox (13.45248pt too wide) in paragraph at lines 92--92
+Overfull \hbox (13.45248pt too wide) in paragraph at lines 94--94
 []    \T1/cmtt/m/n/10.95 return maksimalno_stevilo_zog, casovna_zahtevnost, delez_kosev[] 
  []
 
-[3] ("c:/Users\Masa Orelj\Desktop\Projekt_FP\The-power-of-adjacent-choices\porocilo\porocilo.aux") ) 
+<povprecje_1dim.png, id=20, 518.27914pt x 318.67628pt>
+File: povprecje_1dim.png Graphic file (type png)
+<use povprecje_1dim.png>
+Package pdftex.def Info: povprecje_1dim.png  used on input line 111.
+(pdftex.def)             Requested size: 341.44844pt x 170.71623pt.
+[3]
+<dim1_glede_na_stevilo_zog.png, id=24, 471.47571pt x 484.55315pt>
+File: dim1_glede_na_stevilo_zog.png Graphic file (type png)
+<use dim1_glede_na_stevilo_zog.png>
+Package pdftex.def Info: dim1_glede_na_stevilo_zog.png  used on input line 119.
+(pdftex.def)             Requested size: 341.43344pt x 227.6217pt.
+ [4 <c:/Users/Masa Orelj/Desktop/Projekt_FP/The-power-of-adjacent-choices/porocilo/povprecje_1dim.png> <c:/Users/Masa Orelj/Desktop/Projekt_FP/The-power-of-adjacent-choices/porocilo/dim1_glede_na_stevilo_zog.png>]
+<dim1_glede_na_razdaljo.png, id=30, 471.47571pt x 484.55315pt>
+File: dim1_glede_na_razdaljo.png Graphic file (type png)
+<use dim1_glede_na_razdaljo.png>
+Package pdftex.def Info: dim1_glede_na_razdaljo.png  used on input line 128.
+(pdftex.def)             Requested size: 341.43344pt x 227.6217pt.
+<povprecje_2dim.png, id=31, 696.54514pt x 476.982pt>
+File: povprecje_2dim.png Graphic file (type png)
+<use povprecje_2dim.png>
+Package pdftex.def Info: povprecje_2dim.png  used on input line 136.
+(pdftex.def)             Requested size: 341.43764pt x 170.71628pt.
+ [5 <c:/Users/Masa Orelj/Desktop/Projekt_FP/The-power-of-adjacent-choices/porocilo/dim1_glede_na_razdaljo.png> <c:/Users/Masa Orelj/Desktop/Projekt_FP/The-power-of-adjacent-choices/porocilo/povprecje_2dim.png>]
+<dim2_glede_na_stevilo_zog.png, id=37, 471.47571pt x 484.55315pt>
+File: dim2_glede_na_stevilo_zog.png Graphic file (type png)
+<use dim2_glede_na_stevilo_zog.png>
+Package pdftex.def Info: dim2_glede_na_stevilo_zog.png  used on input line 141.
+(pdftex.def)             Requested size: 341.43344pt x 227.6217pt.
+<dim2_glede_na_razdaljo.png, id=38, 471.47571pt x 484.55315pt>
+File: dim2_glede_na_razdaljo.png Graphic file (type png)
+<use dim2_glede_na_razdaljo.png>
+Package pdftex.def Info: dim2_glede_na_razdaljo.png  used on input line 145.
+(pdftex.def)             Requested size: 341.43344pt x 227.6217pt.
+ [6 <c:/Users/Masa Orelj/Desktop/Projekt_FP/The-power-of-adjacent-choices/porocilo/dim2_glede_na_stevilo_zog.png> <c:/Users/Masa Orelj/Desktop/Projekt_FP/The-power-of-adjacent-choices/porocilo/dim2_glede_na_razdaljo.png>]
+<minimum.png, id=44, 602.25pt x 301.125pt>
+File: minimum.png Graphic file (type png)
+<use minimum.png>
+Package pdftex.def Info: minimum.png  used on input line 153.
+(pdftex.def)             Requested size: 341.44815pt x 170.72406pt.
+ [7 <c:/Users/Masa Orelj/Desktop/Projekt_FP/The-power-of-adjacent-choices/porocilo/minimum.png>] ("c:/Users\Masa Orelj\Desktop\Projekt_FP\The-power-of-adjacent-choices\porocilo\porocilo.aux") ) 
 Here is how much of TeX's memory you used:
- 2568 strings out of 480790
- 34215 string characters out of 2894922
- 280797 words of memory out of 3000000
- 18579 multiletter control sequences out of 15000+200000
+ 3369 strings out of 480790
+ 45954 string characters out of 2894922
+ 293521 words of memory out of 3000000
+ 19341 multiletter control sequences out of 15000+200000
  542172 words of font info for 50 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 30i,4n,27p,303b,222s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 30i,5n,27p,382b,222s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Masa Orelj\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\Masa Orelj\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\Masa Orelj\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk> <C:\Users\Masa Orelj\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\Masa Orelj\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Masa Orelj\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk><C:/Users/Masa Orelj/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Masa Orelj/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Masa Orelj/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Masa Orelj/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Masa Orelj/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Masa Orelj/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on "c:/Users\Masa Orelj\Desktop\Projekt_FP\The-power-of-adjacent-choices\porocilo\porocilo.pdf" (3 pages, 116975 bytes).
+Output written on "c:/Users\Masa Orelj\Desktop\Projekt_FP\The-power-of-adjacent-choices\porocilo\porocilo.pdf" (7 pages, 201190 bytes).
 PDF statistics:
- 228 PDF objects out of 1000 (max. 8388607)
+ 267 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

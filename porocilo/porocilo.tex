@@ -6,6 +6,8 @@
 \usepackage{amsthm}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{graphicx}
+
 
 
 \setlength\parindent{0pt}
@@ -93,11 +95,63 @@ primeru, ko je košev z najmanjšim številom žog med pregledanimi koši več, 
 
 Funkcija $maksimalno\_stevilo\_zogic$ torej sprejme izbrano število žog, število košar in razdalja, vrne pa vrednost maksimalnega število žog v košari,
 potreben čas za izvedbo funkcije in delež košar z maksimalnim številom žog.
-\bigbreak
+
 Program sva prilagodila tudi na dvodimenzionalno mrežo košev, ki deluje na podoben način.
+\bigbreak
 
-
+Za boljši pregled nad dobljenimi rezultati sva jih želela generirati v veliki količini.
+Napisala sva program, ki je prej predstavljeno funkcijo izvedel $100$-krat, preračunal povprečno vrednost maksimalnega števila žog, povprečen delež košev z maksimalno vrednostjo
+in povprečno časovno zahtevnost, nato pa postopek ponovil še $100$-krat. 
+Tako sva dobila željene podatke, ki so se zapisali v csv datoteke. 
 
 \section{Analiza rezultatov}
+V naslednjem koraku sva se lotila analize rezultatov. Začela sva z opazovanjem podatkov v eni dimenziji in ugotavljala vpliv spreminjanja razdalje ter števila žog na opazovane tri vrednosti.
 
+
+\includegraphics[width=12cm, height=6cm]{povprecje_1dim.png}
+
+Na prvem grafu je prikazano spreminjanje povprečnega maksimalnega števila žog v košu v odvisnosti od števila žog oz. razdalje.
+Iz levega grafa je razvidno, da povprečna maksimalna vrednost raste s številom žog, skok pa je največji pri prvem prehodu.
+Na podlagi desnega grafa predvidevava, da bo povprečna maksimalna vrednost, pri nespremenjenem številu košev in žog, z večanjem razdalje padala, pri čemer se bo za velike $n$ bližala vrednosti $1$.
+\bigbreak
+
+
+\includegraphics[width=12cm, height=8cm]{dim1_glede_na_stevilo_zog.png}
+
+Zgornji graf prikazuje razpršenost in gibanje rezultatov glede na število žog. Vsaka pikica predstavlja povprečje opazovane vrednosti pridobljeno s $100$-kratno ponovitvijo poskusa (prej omenjen postopek generiranja rezultatov).
+Razvidno je, da za nobeno izbrano količino žog povprečna maksimalna vrednost pretirano ne odstopa. Večje razlike pa so opazne pri deležu košar z maksimalno vrednostjo. Rezultati so bolj razpršeni za manjše količine žog, še posebaj zanimiv pa je rezultat
+pri količini 30000, kjer so odstopanja minimalna, torej so pri izvedbi poskusa rezultati skoraj enaki.
+Časovna zahtevnost dokaj enakomerno narašča, pri tem pa se razpršenost le minimalno spreminja.
+ 
+
+
+\includegraphics[width=12cm, height= 8cm]{dim1_glede_na_razdaljo.png}
+
+Druga sprmenljivka, ki naju je zanima je razdalja oz. število sosedov, njen vpliv pa je prikazan na zgornjem grafu.
+Tokrat opazimo, da se razpršenost deleža košev veča z razdalj. Predvidevava, da z večanjem števila sosedov raste delež košev z maksimalno vrendostjo, saj se žoge razporejajo bolj enakomerno.
+Časovna zahtevnost je veliko bolj razpršena, odstopanja se pojavljajo, ker z večanjem sosedov posledično vplivamo na večanje variabilnosti možnih kandidatov z minimalno vrednostjo žog v košari. Ob spreminjanju števila kandidatov pa se nato spreminja časovna zahtevnost.
+\bigbreak
+V dvodimenzionalnem primeru sva poskuse izvajala na podoben način, zato sva tudi rezultate ponazorila podobno.
+
+\includegraphics[width=12cm, height=6cm]{povprecje_2dim.png}
+
+Povprečne maksimalne vrednoti so veliko manjše kot v enodimenzionalnem primeru, saj pride do večje prerazporeditve. Na desnem grafu vrendosti tudi veliko hitreje konvergirajo, kar je pričakovano, saj se število sosedov poveča za faktor $+4$ vsakič ko povečamo razdaljo, 
+medtem ko se je v prejšnem primeru povečal le za $+2$.
+
+\includegraphics[width=12cm, height= 8cm]{dim2_glede_na_stevilo_zog.png}
+
+Delež košev z maksimalno vrednostjo je veliko večji kot pri prejšnjem primeru, kar pomeni, da se žoge v dvodimenzionalnem modelu razporejajo veliko bolj enakomerno. Vidimo tudi, da delež pada z večanjem žog in predvidevava, da se delež premika proti $0$.
+
+\includegraphics[width=12cm, height= 8cm]{dim2_glede_na_razdaljo.png}
+
+\pagebreak
+
+Takoj opazimo, da se rezultati na razdalji $1$ na vseh treh grafih močno razlikujejo od ostalih. Delež od razdalje $2$ dalje ni več razpršen, torej se rezultati dokaj ustalijo (vsakič dobimo zelo podobne vrednosti). Predvidevava, da bi delež
+z večanjem razdalje padal proti 0.
+Pri časovni zahtevnosti lahko razpršenost utemeljimo s podobnim argumentom kot v enodimenzionalnem primeru.
+
+\includegraphics[width=12cm, height=6cm]{minimum.png}
+
+Odločila sva se tudi za analizo minimalnega števila žog v koših in deleža košev z minimalnim številom žog.
+Opazimo, da se z večanjem števila žog minimalna vrednost hitro začne razlikovati od 0, hkrati pa lahko predvidevamo, da se delež košov asimptotsko približuje $0$. 
 \end{document}
