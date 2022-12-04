@@ -13,7 +13,7 @@ def najdi_sosede_1d(kosi,izbrana_kosarica, razdalja=1):
     min_vrednost = min(sosedi.values()) #izmed sosedov poiscemo minimalno vrednost
     return sosedi, min_vrednost
 
-def maksimalno_stevilo_zogic(st_zogic, st_kosev, razdalja=1, iscemo_min=False):
+def maksimalno_stevilo_zogic_1d(st_zogic, st_kosev, razdalja=1, iscemo_min=False):
     zacetek = time.time()
     kosi = [0]*st_kosev
     for i in range(st_zogic):
@@ -51,7 +51,7 @@ def najdi_sosede_2d(kosi,izbrana_kosarica, razdalja=1):
 
 def maksimalno_stevilo_zogic_2d(st_zogic, st_kosev, razdalja=1):
     zacetek = time.time()
-    kosi = [st_kosev*[0] for count in range(st_kosev)] #dodamo count, ker [[0]*st_kosev]*st_kosev dela probleme pri dodajanju zog v kose, saj spreminja vsako vrstico namesto posameznega elementa
+    kosi = [st_kosev*[0] for i in range(st_kosev)] #dodamo for loop, ker [[0]*st_kosev]*st_kosev dela probleme pri dodajanju zog v kose, saj spreminja vsako vrstico namesto posameznega elementa
     for i in range(st_zogic):
         izbrana_kosarica = [random.randrange(st_kosev), random.randrange(st_kosev)]
         sosedi, min_vrednost = najdi_sosede_2d(kosi, izbrana_kosarica, razdalja) #pridobimo sosede in minimalno vrednost iz pomozne funkcije
@@ -67,42 +67,70 @@ def maksimalno_stevilo_zogic_2d(st_zogic, st_kosev, razdalja=1):
     casovna_zahtevnost = f'{konec-zacetek}' #izracunamo casovno zahtevnost algoritma
     return maksimum, casovna_zahtevnost, delez_kosev
 
+def najdi_sosede_3d(kosi,izbrana_kosarica, razdalja=1):
+    dolzina = izbrana_kosarica[0]
+    sirina = izbrana_kosarica[1]
+    visina = izbrana_kosarica[2]
+    sosedi = {}
+    st_kosev = len(kosi)
+    for d in range((-razdalja),(razdalja+1)): #pogledamo sosede po dolzini
+        indeks_soseda_dolzina = (izbrana_kosarica[0] + d) % st_kosev #poiscemo index vrstice sosedov
+        sosedi[indeks_soseda_dolzina,sirina, visina] = kosi[indeks_soseda_dolzina][sirina][visina] #v slovar sosedov dodamo (vrstico, stolpec) posameznega soseda in njegovo vrednost
+    for s in range((-razdalja),(razdalja+1)): #pogledamo sosede po dolzini
+        indeks_soseda_sirina = (izbrana_kosarica[1] + s) % st_kosev #poiscemo index vrstice sosedov
+        sosedi[dolzina,indeks_soseda_sirina, visina] = kosi[dolzina][indeks_soseda_sirina][visina] #v slovar sosedov dodamo (vrstico, stolpec) posameznega soseda in njegovo vrednost
+    for v in range((-razdalja),(razdalja+1)): #pogledamo sosede v stolpcu
+        indeks_soseda_visina = (izbrana_kosarica[2] + v) % st_kosev #poiscemo index stolpca sosedov
+        sosedi[dolzina,sirina, indeks_soseda_visina] = kosi[dolzina][sirina][indeks_soseda_visina] #v slovar sosedov dodamo (vrstico, stolpec) posameznega soseda in njegovo vrednost       
+    min_vrednost = min(sosedi.values()) #poiscemo minimalno vrednost sosedov
+    return sosedi, min_vrednost
+
+def maksimalno_stevilo_zogic_3d(st_zogic, st_kosev, razdalja=1):
+    zacetek = time.time()
+    kosi = [[st_kosev*[0] for i in range(st_kosev)] for j in range(st_kosev)] #podobno kot pri 2d nardimo dva for loopa
+    for i in range(st_zogic):
+        izbrana_kosarica = [random.randrange(st_kosev), random.randrange(st_kosev), random.randrange(st_kosev)]
+        sosedi, min_vrednost = najdi_sosede_3d(kosi, izbrana_kosarica, razdalja) #pridobimo sosede in minimalno vrednost iz pomozne funkcije
+        kandidati = [k for k,v in sosedi.items() if v == min_vrednost] #poiscemo kandidate iz sosedov z minimalno vrednostjo
+        min_sosed = list(min(kandidati)) #vzame se sosed z najmanjsim prvim indexom, leksikografsko
+        dolzina = min_sosed[0]
+        sirina = min_sosed[1]
+        visina = min_sosed[2]
+        kosi[dolzina][sirina][visina] += 1 #minimalnemu sosedu dodamo zogo
+    maksimum = max(max(max(vrstica for vrstica in kosi))) #poiscemo maksimalno stevilo zog v posameznem kosu
+    st_kosev_z_max_vrednostjo = sum([vrstica.count(maksimum) for dolzine in kosi for vrstica in dolzine]) #prestejemo stevilo kosev, ki imajo maksimalno vrednost
+    delez_kosev = st_kosev_z_max_vrednostjo / (st_kosev*st_kosev*st_kosev) #izracunamo delez kosev z maksimalno vrednostjo
+    konec = time.time()
+    casovna_zahtevnost = f'{konec-zacetek}' #izracunamo casovno zahtevnost algoritma
+    return maksimum, casovna_zahtevnost, delez_kosev
+
 def ponovi_maksimalno_stevilo_zogic(st_ponovitev, st_zogic, st_kosev, razdalja=1, dimenzija=1, iscemo_min=False): #funkcija, ki ponovi nakljucno razporejanje zogic st_ponovitev-krat
     max_vrednosti = []
     casovne_zahtevnosti = []
     delezi_kosev = []
-    if dimenzija == 1: #racunamo za eno dimenzijo
-        if iscemo_min: #ce racunamo minimum
-            min_vrednosti = []
-            for i in range(st_ponovitev):
-                min_vrednost, casovna_zahtevnost, delez_kosev = maksimalno_stevilo_zogic(st_zogic, st_kosev, razdalja, iscemo_min) #izracunamo minimalno vrednost, casovno zahtevnost in delez kosev z minimalnim stevilom zog
-                min_vrednosti.append(min_vrednost) #dodamo minimalne vrednosti 
-                casovne_zahtevnosti.append(float(casovna_zahtevnost)) #dodamo casovne zahtevnosti
-                delezi_kosev.append(delez_kosev) #dodamo deleze kosov z minimalnim stevilom zog
-            povprecna_min_vrednost = sum(min_vrednosti) / len(min_vrednosti) #izracunamo povprecno minimalno vrednost
-            casovna_zahtevnost = sum(casovne_zahtevnosti) #izracunamo skupno casovno zahtevnost
-            povprecni_delez_kosev = sum(delezi_kosev) / len(delezi_kosev) #izracunamo povprecni delez kosev z minimalno vrednostjo 
-            return povprecna_min_vrednost, casovna_zahtevnost, povprecni_delez_kosev           
-        else: #normalno racunamo max
-            for i in range(st_ponovitev):
-                max_vrednost, casovna_zahtevnost, delez_kosev = maksimalno_stevilo_zogic(st_zogic, st_kosev, razdalja) #izracunamo maksimalno vrednost, casovno zahtevnost in delez kosev z maksimalnim stevilom zog
-                max_vrednosti.append(max_vrednost) #dodamo maksimalne vrednosti 
-                casovne_zahtevnosti.append(float(casovna_zahtevnost)) #dodamo casovne zahtevnosti
-                delezi_kosev.append(delez_kosev) #dodamo deleze kosov z maksimalnim stevilom zog
-            povprecna_max_vrednost = sum(max_vrednosti) / len(max_vrednosti) #izracunamo povprecno maksimalno vrednost
-            casovna_zahtevnost = sum(casovne_zahtevnosti) #izracunamo skupno casovno zahtevnost
-            povprecni_delez_kosev = sum(delezi_kosev) / len(delezi_kosev) #izracunamo povprecni delez kosev z maksimalno vrednostjo
-    elif dimenzija == 2:
-        for i in range(st_ponovitev): #enako kot za eno dimenzijo
-            max_vrednost, casovna_zahtevnost, delez_kosev = maksimalno_stevilo_zogic_2d(st_zogic, st_kosev, razdalja) 
-            max_vrednosti.append(max_vrednost)
-            casovne_zahtevnosti.append(float(casovna_zahtevnost))
-            delezi_kosev.append(delez_kosev)
-        povprecna_max_vrednost = sum(max_vrednosti) / len(max_vrednosti)
-        casovna_zahtevnost = sum(casovne_zahtevnosti)
-        povprecni_delez_kosev = sum(delezi_kosev) / len(delezi_kosev)
-    else:
-        raise ValueError("Neveljavna dimenzija")
+
+    if iscemo_min: #ce racunamo minimum
+        min_vrednosti = []
+        if dimenzija != 1:
+            raise ValueError("Neveljavna dimenzija")
+        for i in range(st_ponovitev):
+            min_vrednost, casovna_zahtevnost, delez_kosev = maksimalno_stevilo_zogic_1d(st_zogic, st_kosev, razdalja, iscemo_min) #izracunamo minimalno vrednost, casovno zahtevnost in delez kosev z minimalnim stevilom zog
+            min_vrednosti.append(min_vrednost) #dodamo minimalne vrednosti 
+            casovne_zahtevnosti.append(float(casovna_zahtevnost)) #dodamo casovne zahtevnosti
+            delezi_kosev.append(delez_kosev) #dodamo deleze kosov z minimalnim stevilom zog
+        povprecna_min_vrednost = sum(min_vrednosti) / len(min_vrednosti) #izracunamo povprecno minimalno vrednost
+        casovna_zahtevnost = sum(casovne_zahtevnosti) #izracunamo skupno casovno zahtevnost
+        povprecni_delez_kosev = sum(delezi_kosev) / len(delezi_kosev) #izracunamo povprecni delez kosev z minimalno vrednostjo 
+        return povprecna_min_vrednost, casovna_zahtevnost, povprecni_delez_kosev           
+    else: #normalno racunamo max
+        for i in range(st_ponovitev):
+            max_vrednost, casovna_zahtevnost, delez_kosev = globals()[f'maksimalno_stevilo_zogic_{dimenzija}d'](st_zogic, st_kosev, razdalja) #izracunamo maksimalno vrednost, casovno zahtevnost in delez kosev z maksimalnim stevilom zog
+            max_vrednosti.append(max_vrednost) #dodamo maksimalne vrednosti 
+            casovne_zahtevnosti.append(float(casovna_zahtevnost)) #dodamo casovne zahtevnosti
+            delezi_kosev.append(delez_kosev) #dodamo deleze kosov z maksimalnim stevilom zog
+        povprecna_max_vrednost = sum(max_vrednosti) / len(max_vrednosti) #izracunamo povprecno maksimalno vrednost
+        casovna_zahtevnost = sum(casovne_zahtevnosti) #izracunamo skupno casovno zahtevnost
+        povprecni_delez_kosev = sum(delezi_kosev) / len(delezi_kosev) #izracunamo povprecni delez kosev z maksimalno vrednostjo
     return povprecna_max_vrednost, casovna_zahtevnost, povprecni_delez_kosev
 
 def zapisi_rezultate(st_poskusov, st_ponovitev, st_zogic, st_kosev, razdalja=1, dimenzija=1, iscemo_min= False): #zapisemo nase poizkuse v csv datoteke
@@ -124,7 +152,6 @@ def zapisi_rezultate(st_poskusov, st_ponovitev, st_zogic, st_kosev, razdalja=1, 
                 max, casovna_zahtevnost, delez_kosev = ponovi_maksimalno_stevilo_zogic(st_ponovitev,st_zogic, st_kosev, razdalja, dimenzija) #izracunamo povprecne maksimume, casovne zahtevnosti in deleze kosev
                 writer.writerow([max, delez_kosev, casovna_zahtevnost]) #zapisemo v vrstico
                 f.flush()  #zapise takoj brez bufferja
-
 
 
 
@@ -156,3 +183,8 @@ def zapisi_rezultate(st_poskusov, st_ponovitev, st_zogic, st_kosev, razdalja=1, 
 #zapisi_rezultate(100,100, 50000, 10000,1,1, True)
 
 
+zapisi_rezultate(100,100, 8000, 20,1,3)
+zapisi_rezultate(100,100, 16000, 20,1,3)
+zapisi_rezultate(100,100, 24000, 20,1,3)
+zapisi_rezultate(100,100, 32000, 20,1,3)
+zapisi_rezultate(100,100, 40000, 20,1,3)
