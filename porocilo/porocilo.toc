@@ -1,4 +1,4 @@
-\babel@toc {slovene}{}\relax 
+\babel@toc {slovene}{}
 \contentsline {section}{\numberline {1}Navodilo}{3}{section.1}%
 \contentsline {section}{\numberline {2}Program za reševanje problema}{3}{section.2}%
 \contentsline {section}{\numberline {3}Analiza rezultatov}{4}{section.3}%

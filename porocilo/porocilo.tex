@@ -131,16 +131,16 @@ Na podlagi desnega grafa predvidevava, da bo povprečna maksimalna vrednost, pri
 \includegraphics[width=12cm, height=8cm]{dim1_glede_na_stevilo_zog1.png}
 
 Zgornji graf prikazuje razpršenost in gibanje rezultatov glede na število žog. Vsaka pikica predstavlja povprečje opazovane vrednosti pridobljeno s $100$-kratno ponovitvijo poskusa (prej omenjen postopek generiranja rezultatov).
-Razvidno je, da za nobeno izbrano količino žog povprečna maksimalna vrednost pretirano ne odstopa. Večje razlike pa so opazne pri deležu košar z maksimalno vrednostjo. Rezultati so bolj razpršeni za manjše količine žog, še posebaj zanimiv pa je rezultat
-pri količini 30000, kjer so odstopanja minimalna, torej so pri izvedbi poskusa rezultati skoraj enaki.
-Časovna zahtevnost dokaj enakomerno narašča, pri tem pa se razpršenost le minimalno spreminja.
+Razvidno je, da za nobeno izbrano količino žog povprečna maksimalna vrednost pretirano ne odstopa. Večje razlike so opazne pri deležu košar z maksimalno vrednostjo. Na podlagi grafa predvidevava, da z naraščanjem števila žog pada delež košev z maksimalno vrednostjo,
+hkrati pa so rezultati vedno bolj razpršeni (imajo večji odklon).
+Časovna zahtevnost dokaj enakomerno narašča, na vsakih novih 10000 žog se poveča za približno 2,4 sekunde, pri tem pa se razpršenost le minimalno spreminja.
 \bigbreak
 
 
 \includegraphics[width=12cm, height= 8cm]{dim1_glede_na_razdaljo1.png}
 
 Druga sprmenljivka, ki naju je zanima je razdalja oz. število sosedov, njen vpliv pa je prikazan na zgornjem grafu.
-Tokrat opazimo, da se razpršenost deleža košev veča z razdalj. Predvidevava, da z večanjem števila sosedov raste delež košev z maksimalno vrendostjo, saj se žoge razporejajo bolj enakomerno.
+Tokrat opazimo, da se razpršenost deleža košev večaja pri večjih razdaljah. Predvidevava, da z večanjem števila sosedov raste delež košev z maksimalno vrendostjo, saj se žoge pri večjem številu kandidatov razporejajo bolj enakomerno.
 Časovna zahtevnost je veliko bolj razpršena, odstopanja se pojavljajo, ker z večanjem sosedov posledično vplivamo na večanje variabilnosti možnih kandidatov z minimalno vrednostjo žog v košari. Ob spreminjanju števila kandidatov pa se nato spreminja časovna zahtevnost.
 \bigbreak
 
@@ -162,7 +162,10 @@ medtem ko se je v prejšnem primeru povečal le za $+2$.
 \bigbreak
 \includegraphics[width=12cm, height= 8cm]{dim2_glede_na_stevilo_zog1.png}
 
-Delež košev z maksimalno vrednostjo je veliko večji kot pri prejšnjem primeru, kar pomeni, da se žoge v dvodimenzionalnem modelu razporejajo veliko bolj enakomerno. Vidimo tudi, da delež pada z večanjem žog in predvidevava, da se delež premika proti $0$.
+Delež košev z maksimalno vrednostjo je veliko večji kot pri prejšnjem primeru, kar pomeni, 
+da se žoge v dvodimenzionalnem modelu razporejajo bolj enakomerno. Vidimo tudi, da 
+delež pada z večanjem žog in predvidevava, da se delež premika proti $0$. Časovna zahtevnost je zelo podobna časovni zahtevnosti v eni dimenziji.
+
 \bigbreak
 \includegraphics[width=12cm, height= 8cm]{dim2_glede_na_razdaljo1.png}
 
