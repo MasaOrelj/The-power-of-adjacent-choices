@@ -273,9 +273,9 @@ maks_zdruzena_dim3_razdalja <- cbind(dim3_8000_100_1[1], dim3_16000_100_1[1],dim
 delez_zdruzena_dim3_razdalja <- cbind(dim3_8000_100_1[2], dim3_16000_100_1[2],dim3_24000_100_1[2], dim3_32000_100_1[2],dim3_40000_100_1[2])
 cas_zdruzena_dim3_razdalja <- cbind(dim3_8000_100_1[3], dim3_16000_100_1[3],dim3_24000_100_1[3], dim3_32000_100_1[3],dim3_40000_100_1[3])
 
-povp3d_maks <- round(apply(maks_zdruzena_dim3_razdalja, 2, mean), 2)
+povp3d_maks <- round(apply(maks_zdruzena_dim3_razdalja, 2, mean), 3)
 povp3d_delez <- round(apply(delez_zdruzena_dim3_razdalja, 2, mean), 3)
-povp3d_cas <- round(apply(cas_zdruzena_dim3_razdalja, 2, mean), 2)
+povp3d_cas <- round(apply(cas_zdruzena_dim3_razdalja, 2, mean), 3)
 
 #
 graf_povp_3d_maks <- enframe(povp3d_maks) %>% ggplot(
@@ -300,7 +300,7 @@ graf_povp_3d_delez <- enframe(povp3d_delez) %>% ggplot(
   geom_label_repel(aes(label = value))+
   labs(
     x = "Število žog (v 8000)",
-    y = "Delež maksimalnih košar",
+    y = "Delež košev z maksimumom",
     title="Delež košev z maksimalno vrednostjo"
   ) 
 graf_povp_3d_delez

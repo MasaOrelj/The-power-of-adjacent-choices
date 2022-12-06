@@ -8,6 +8,8 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{fancyvrb}
+\usepackage{fvextra}
 \hypersetup{
     colorlinks,
     citecolor=black,
@@ -68,9 +70,9 @@ Za reševanje opisanega problema sva uporabila programski jezik \emph{Python}. Z
 naloge v eni dimenziji, pri katerem je možno spreminjanje števila sosedov(razdalje), koločine žog in količine košev. Pri tem sva privzela, da v
 primeru, ko je košev z najmanjšim številom žog med pregledanimi koši več, položimo žogo v koš z najmanjšim indeksom. 
 
-\begin{verbatim}
-    #ISKANJE SOSEDOV
-    def najdi_sosede_1d(kosi,izbrana_kosarica, razdalja=1):
+\begin{Verbatim}[breaklines=true]
+#ISKANJE SOSEDOV
+def najdi_sosede_1d(kosi,izbrana_kosarica, razdalja=1):
     sosedi = {}
     st_kosev = len(kosi)
     for j in range((-razdalja),(razdalja+1)):
@@ -78,17 +80,17 @@ primeru, ko je košev z najmanjšim številom žog med pregledanimi koši več, 
         v slovar sosedov dodaj njegov indeks kot kljuc in njegovo stevilo zog kot vrednost
     izmed sosedov poisi tistega z minimalno vrednost
     return sosedi, minimalna_vrednost
-\end{verbatim}
+\end{Verbatim}
 
 \pagebreak
-\begin{verbatim}
-    #ISKANJE MAKSIMALNEGA STEVILA ZOG
-    def maksimalno_stevilo_zogic(st_zogic, st_kosev, razdalja=1):
+\begin{Verbatim}[breaklines=true]
+#ISKANJE MAKSIMALNEGA STEVILA ZOG
+def maksimalno_stevilo_zogic(st_zogic, st_kosev, razdalja=1):
     zacetek merjenja casa
     kosi = [0]*st_kosev
     for i in range(st_zogic):
         nakljucno izberemo kosarico
-        najdi_sosede_1d(kosi, izbrana_kosarica, razdalja) #s pomozno funkcijo doloci sosede in minimalno vrednost
+        najdi_sosede_1d(kosi, izbrana_kosarica, razdalja)
         poisci vse kandidate, ki so sosedi in imajo minimalno vrednost
         izmed kandidatov izberi tistega z najnizjim indeksom
         kosi[minimalni_sosed] += 1 
@@ -100,7 +102,7 @@ primeru, ko je košev z najmanjšim številom žog med pregledanimi koši več, 
     return maksimalno_stevilo_zog, casovna_zahtevnost, delez_kosev
 
 
-\end{verbatim}
+\end{Verbatim}
 
 Funkcija $maksimalno\_stevilo\_zogic$ torej sprejme izbrano število žog, število košar in razdalja, vrne pa vrednost maksimalnega število žog v košari,
 potreben čas za izvedbo funkcije in delež košar z maksimalnim številom žog.
@@ -172,13 +174,14 @@ Pri časovni zahtevnosti lahko razpršenost utemeljimo s podobnim argumentom kot
 \subsection{Tridimenzionalen problem}
 
 Lotila sva se tudi problema soseske, kjer so košare predstavljene v tridimenzionalnem formatu.
-V tem primeru sta $b_{i,j,k} $in$ b_{i',j',l'}$ soseda, ko velja $|i-i'|+|j-j'|+|l-l'| = 1$, ter so paroma sosedje 
-$b_{1,j,k} $ in $b_{n,j,k}$, $b_{i,1,k} $ in $b_{i,n,k}$ ter $b_{i,j,1} $ in $b_{i,j,n}$.
-\linebreak
+V tem primeru sta $b_{i,j,k} $ in $ b_{i',j',l'}$ soseda, ko velja $|i-i'|+|j-j'|+|l-l'| = 1$, ter so sosedje 
+$b_{1,j,k} $ in $b_{n,j,k}$, $b_{i,1,k} $ in $b_{i,n,k}$ ter $b_{i,j,1} $ in $b_{i,j,n}$ za $i, j, k \in [n]$.
+\\
+\\
 Generirala sva $100$ povprečij $100$ naključnih poskusov, kjer imamo $k \cdot 8000$ žog in $8000$ košar, $k=1,2, \dots, 5$. 
 V spodnjih grafih so prikazana povprečja posameznih rezultatov. 
 \bigbreak
-\includegraphics[scale=0.65]{graf_3d1.png}
+\includegraphics[scale=0.65]{povprecje_3d.png}
 \\
 Glede na generirane podatke ocenjujeva, da se maksimalna vrednost žog v posamezni košari veča za približno $1,02$ z večanjem
 števila žog. Delež košov z maksimalno vrednostjo ima v prvem koraku malo večji skok, kjer se delež poveča za 
