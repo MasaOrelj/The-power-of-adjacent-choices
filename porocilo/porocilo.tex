@@ -7,7 +7,14 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
-
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
 
 
 \setlength\parindent{0pt}
@@ -26,7 +33,7 @@
     \vspace{3cm}
 
     Avtorja:\\
-    {\Large Justin Raišp, Maša Orelj\par}
+    {\Large Maša Orelj, Justin Raišp\par}
     \vspace{7cm}
 
     {\Large Ljubljana, 2022}
@@ -125,7 +132,7 @@ Zgornji graf prikazuje razpršenost in gibanje rezultatov glede na število žog
 Razvidno je, da za nobeno izbrano količino žog povprečna maksimalna vrednost pretirano ne odstopa. Večje razlike pa so opazne pri deležu košar z maksimalno vrednostjo. Rezultati so bolj razpršeni za manjše količine žog, še posebaj zanimiv pa je rezultat
 pri količini 30000, kjer so odstopanja minimalna, torej so pri izvedbi poskusa rezultati skoraj enaki.
 Časovna zahtevnost dokaj enakomerno narašča, pri tem pa se razpršenost le minimalno spreminja.
- 
+\bigbreak
 
 
 \includegraphics[width=12cm, height= 8cm]{dim1_glede_na_razdaljo1.png}
@@ -133,6 +140,14 @@ pri količini 30000, kjer so odstopanja minimalna, torej so pri izvedbi poskusa 
 Druga sprmenljivka, ki naju je zanima je razdalja oz. število sosedov, njen vpliv pa je prikazan na zgornjem grafu.
 Tokrat opazimo, da se razpršenost deleža košev veča z razdalj. Predvidevava, da z večanjem števila sosedov raste delež košev z maksimalno vrendostjo, saj se žoge razporejajo bolj enakomerno.
 Časovna zahtevnost je veliko bolj razpršena, odstopanja se pojavljajo, ker z večanjem sosedov posledično vplivamo na večanje variabilnosti možnih kandidatov z minimalno vrednostjo žog v košari. Ob spreminjanju števila kandidatov pa se nato spreminja časovna zahtevnost.
+\bigbreak
+
+\subsubsection{Minimalna vrednost}
+Odločila sva se tudi za analizo minimalnega števila žog v koših in deleža košev z minimalnim številom žog.
+\bigbreak
+\includegraphics[width=12cm, height=6cm]{minimum.png}
+
+Opazimo, da se z večanjem števila žog minimalna vrednost hitro začne razlikovati od 0, hkrati pa lahko predvidevamo, da se delež košov asimptotsko približuje $0$. 
 \bigbreak
 
 \subsection{Dvodimenzionalen problem}
@@ -153,29 +168,21 @@ Delež košev z maksimalno vrednostjo je veliko večji kot pri prejšnjem primer
 Takoj opazimo, da se rezultati na razdalji $1$ na vseh treh grafih močno razlikujejo od ostalih. Delež od razdalje $2$ dalje ni več razpršen, torej se rezultati dokaj ustalijo (vsakič dobimo zelo podobne vrednosti). Predvidevava, da bi delež
 z večanjem razdalje padal proti 0.
 Pri časovni zahtevnosti lahko razpršenost utemeljimo s podobnim argumentom kot v enodimenzionalnem primeru.
-\\
-\subsubsection{Minimalna vrednost}
-Odločila sva se tudi za analizo minimalnega števila žog v koših in deleža košev z minimalnim številom žog.
-\bigbreak
-\includegraphics[width=12cm, height=6cm]{minimum.png}
 
-Opazimo, da se z večanjem števila žog minimalna vrednost hitro začne razlikovati od 0, hkrati pa lahko predvidevamo, da se delež košov asimptotsko približuje $0$. 
-
-\subsection{Trodimenzionalen problem}
+\subsection{Tridimenzionalen problem}
 
 Lotila sva se tudi problema soseske, kjer so košare predstavljene v tridimenzionalnem formatu.
 V tem primeru sta $b_{i,j,k} $in$ b_{i',j',l'}$ soseda, ko velja $|i-i'|+|j-j'|+|l-l'| = 1$, ter so paroma sosedje 
 $b_{1,j,k} $ in $b_{n,j,k}$, $b_{i,1,k} $ in $b_{i,n,k}$ ter $b_{i,j,1} $ in $b_{i,j,n}$.
 \linebreak
 Generirala sva $100$ povprečij $100$ naključnih poskusov, kjer imamo $k \cdot 8000$ žog in $8000$ košar, $k=1,2, \dots, 5$. 
-Shranila sva si podakte o povprečnem največjem število žog v posamezni košari, časovno zahtevnost generiranja ter delež košar z 
-maksimalnim številom žog. V spodnjih grafih so prikazana povprečja posameznih rezultatov. 
+V spodnjih grafih so prikazana povprečja posameznih rezultatov. 
 \bigbreak
 \includegraphics[scale=0.65]{graf_3d1.png}
 \\
 Glede na generirane podatke ocenjujeva, da se maksimalna vrednost žog v posamezni košari veča za približno $1,02$ z večanjem
 števila žog. Delež košov z maksimalno vrednostjo ima v prvem koraku malo večji skok, kjer se delež poveča za 
-$0.01$, potem pa se rast precej umiri, kjer so razlike med koraki približno $0.001$. Časovna zahtevnost se z vsakim večanjem žog poveča za nekje med $3$ in $4$ sekunde.
+$0.01$, potem pa se rast precej umiri, kjer so razlike med koraki približno $0.001$. Časovna zahtevnost se z vsakim večanjem žog poveča za približno $3$ do $4$ sekunde.
 
 
 \end{document}

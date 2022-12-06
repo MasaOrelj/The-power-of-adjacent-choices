@@ -1,8 +1,8 @@
 \babel@toc {slovene}{}\relax 
-\contentsline {section}{\numberline {1}Navodilo}{3}{}%
-\contentsline {section}{\numberline {2}Program za reševanje problema}{3}{}%
-\contentsline {section}{\numberline {3}Analiza rezultatov}{4}{}%
-\contentsline {subsection}{\numberline {3.1}Enodimenzionalen problem}{4}{}%
-\contentsline {subsection}{\numberline {3.2}Dvodimenzionalen problem}{6}{}%
-\contentsline {subsubsection}{\numberline {3.2.1}Minimalna vrednost}{8}{}%
-\contentsline {subsection}{\numberline {3.3}Trodimenzionalen problem}{9}{}%
+\contentsline {section}{\numberline {1}Navodilo}{3}{section.1}%
+\contentsline {section}{\numberline {2}Program za reševanje problema}{3}{section.2}%
+\contentsline {section}{\numberline {3}Analiza rezultatov}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Enodimenzionalen problem}{4}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Minimalna vrednost}{6}{subsubsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.2}Dvodimenzionalen problem}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Tridimenzionalen problem}{9}{subsection.3.3}%
